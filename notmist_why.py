@@ -57,44 +57,14 @@ num_steps = 801
 def accuracy(predictions, labels):
     return (100.0 * np.sum(np.argmax(predictions, 1) == np.argmax(labels, 1))/ predictions.shape[0])
 
-with tf.Session(graph=graph) as session:
+with tf.Session(graph = graph) as session:
     tf.initialize_all_variables().run()
     print('Initialized')
     for step in range(num_steps):
         _, l, predictions = session.run([optimizer, loss, train_prediction])
         if (step % 100 == 0):
-              print('Loss at step %d: %f' % (step, l))
-              print('Training accuracy: %.1f%%' % accuracy(predictions, train_labels[:10000, :]))
-              print('Validation accuracy: %.1f%%' % accuracy(valid_prediction.eval(), valid_labels))
+            print('Loss at step %d: %f' % (step, l))
+            print('Training accuracy: %.1f%%' % accuracy(predictions, train_labels[:10000, :]))
+            print('Validation accuracy: %.1f%%' % accuracy(valid_prediction.eval(), valid_labels))
     print('Test accuracy: %.1f%%' % accuracy(test_prediction.eval(), test_labels))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
     
