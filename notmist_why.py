@@ -37,7 +37,7 @@ with graph.as_default():
     tf_train_dataset = tf.constant(train_dataset[:10000,:])
     tf_train_labels = tf.constant(train_labels[:10000])
     tf_valid_dataset = tf.constant(valid_dataset)
-    tf_test_dataset = tf.constant(valid_dataset)
+    tf_test_dataset = tf.constant(test_dataset)
 
     weights = tf.Variable(tf.truncated_normal([image_size**2,num_labels]))
     biases = tf.Variable(tf.zeros([num_labels]))
